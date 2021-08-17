@@ -1,0 +1,22 @@
+class Solution{
+    public:
+    //Complete this function
+    //Function to check whether there is a subarray present with 0-sum or not.
+    bool subArrayExists(int a[], int n)
+    {
+        unordered_map<int,int> m;
+        int cs=0;
+        int i=0;
+        while(i<n)
+        {
+            cs+=a[i];
+            if(cs==0)
+              return true;
+            else if(m.find(cs)!=m.end())
+              return true;
+            m[cs]+=1;
+            i++;
+        }
+        return false;
+    }
+};
